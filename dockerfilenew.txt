@@ -1,0 +1,14 @@
+FROM  mcr.microsoft.com/azure-functions/python:3.0-python3.8
+ENV host:logger:consoleLoggingMode=always
+ENV AZURE_CLIENT_ID=$
+ENV AZURE_CLIENT_SECRET=
+ENV AZURE_KEYVAULT_NAME=
+ENV AZURE_TENANT_ID=
+ENV Database=
+ENV Driver=
+ENV Server=
+ENV table=
+COPY . /home/site/wwwroot
+RUN apt-get install -y unixodbc-dev
+RUN apt-get install -y python-pip
+RUN cd /home/site/wwwroot && pip install -r requirements.txt
