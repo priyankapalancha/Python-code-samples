@@ -1,0 +1,19 @@
+from azure.cosmosdb.table.tableservice import TableService
+from azure.cosmosdb.table.models import Entity
+
+table_service = TableService(account_name='xxxxxxxxxx', account_key='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
+
+
+table_service = TableService(connection_string='DefaultEndpointsProtocol=https;AccountName=xxxxxxxxxxxxxxxxxxxx;AccountKey=xxxxxxxxxxxxxxxxxxxxxxg==;EndpointSuffix=core.windows.net')
+
+#table_service.create_table('')
+
+task = {'PartitionKey': 'APINAME', 'RowKey': '3',
+        'api_team': 'Take out the trash'}
+table_service.insert_entity('Myblockmobile', task)
+
+'''task = Entity()
+task.PartitionKey = 'APINAMAE'
+task.RowKey = '2'
+task.api_team = '567'
+table_service.insert_entity('tasktable', task)'''
